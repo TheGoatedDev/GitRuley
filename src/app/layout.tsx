@@ -26,27 +26,23 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     return (
         <html lang="en">
             <body className={`${poppins.variable} antialiased dark`}>
-                <SidebarProvider>
-                    <AppSidebar />
-                    <div className="w-full min-h-screen flex flex-col">
-                        <div className="flex items-center justify-between p-4 w-full">
-                            <SidebarTrigger />
-
-                            {session && (
-                                <div className="flex items-center gap-4">
-                                    <Avatar>
-                                        <AvatarImage src={session?.user?.image ?? ''} />
-                                        <AvatarFallback>
-                                            {session?.user?.name?.charAt(0)}
-                                        </AvatarFallback>
-                                    </Avatar>
-                                    <LogoutButton />
-                                </div>
-                            )}
-                        </div>
-                        <main className="m-4 flex-1">{children}</main>
+                <div className="w-full min-h-screen flex flex-col">
+                    <div className="flex items-center justify-between p-4 w-full border-b-[1px] border-secondary">
+                        <span className="text-2xl font-bold">GitRuley</span>
+                        {session && (
+                            <div className="flex items-center gap-4">
+                                <Avatar>
+                                    <AvatarImage src={session?.user?.image ?? ''} />
+                                    <AvatarFallback>
+                                        {session?.user?.name?.charAt(0)}
+                                    </AvatarFallback>
+                                </Avatar>
+                                <LogoutButton />
+                            </div>
+                        )}
                     </div>
-                </SidebarProvider>
+                    <main className="m-4 flex-1 ">{children}</main>
+                </div>
                 <Toaster />
             </body>
         </html>
