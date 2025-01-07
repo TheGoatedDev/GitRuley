@@ -1,3 +1,5 @@
+import '@/app/globals.css';
+import { Toaster } from '@/components/ui/sonner';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
@@ -18,11 +20,7 @@ export const metadata: Metadata = {
     description: 'GitRuley is a platform for managing github repositories rulesets',
 };
 
-export default async function RootLayout({
-    children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
     const session = await auth();
 
     return (
@@ -49,6 +47,7 @@ export default async function RootLayout({
                         <main className="m-4 flex-1">{children}</main>
                     </div>
                 </SidebarProvider>
+                <Toaster />
             </body>
         </html>
     );

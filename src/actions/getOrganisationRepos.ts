@@ -42,5 +42,7 @@ export const getOrganisationRepos = async (orgName: string) => {
     }
 
     const repos = (await response.json()) as GHRepository[];
-    return repos.sort((a, b) => a.name.localeCompare(b.name));
+    return repos
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .filter((repo) => !repo.archived && !repo.disabled);
 };
