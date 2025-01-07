@@ -11,12 +11,6 @@ declare module 'next-auth' {
     }
 }
 
-declare module 'next-auth/jwt' {
-    interface JWT {
-        accessToken?: string;
-    }
-}
-
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [
         GithubProvider({
@@ -37,7 +31,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             return true;
         },
         async session({ session, token }) {
-            session.accessToken = token.accessToken;
+            session.accessToken = token.accessToken as string;
             return session;
         },
         async jwt({ token, user, account }) {
