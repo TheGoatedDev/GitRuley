@@ -16,8 +16,26 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-    title: 'GitRuley',
-    description: 'GitRuley is a platform for managing github repositories rulesets',
+    title: 'GitRuley - Mass GitHub Repository Rules Editor',
+    description:
+        'Efficiently manage GitHub repository rules at scale. GitRuley helps teams standardize branch protection, security settings, and compliance across multiple repositories in just a few clicks.',
+
+    twitter: {
+        card: 'summary_large_image',
+        title: 'GitRuley - GitHub Rules Management Made Easy',
+        description:
+            'Save time managing GitHub repositories with GitRuley. Edit multiple repository rulesets at once, ensuring consistent security and compliance across your organization.',
+    },
+
+    openGraph: {
+        type: 'website',
+        title: 'GitRuley - Mass GitHub Repository Rules Editor',
+        description:
+            'Streamline GitHub repository management by editing multiple repository rulesets simultaneously. Perfect for organizations looking to maintain consistent security and compliance standards.',
+    },
+
+    keywords:
+        'github repository rules, branch protection, github security, repository management, github automation, compliance automation, repository governance, github administration',
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
